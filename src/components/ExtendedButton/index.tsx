@@ -27,7 +27,7 @@ export const ExtendedButton = ({
     switch (type) {
       default:
       case 'primary':
-        return 'bg-primary border-2 border-primaryAccent';
+        return 'bg-secondaryAccent border-[2px] border-primaryAccent';
     }
   }, [type]);
 
@@ -35,7 +35,7 @@ export const ExtendedButton = ({
     switch (type) {
       default:
       case 'primary':
-        return 'bg-primary border-2 border-secondaryAccent';
+        return 'bg-secondaryAccent border-[2px] border-secondaryAccent';
     }
   }, [type]);
 
