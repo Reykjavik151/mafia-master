@@ -14,7 +14,8 @@ import { store } from '../redux/store';
 const RootStack = () => (
   <Stack screenOptions={NO_HEADER_OPTIONS}>
     <Stack.Screen name="welcome" />
-    {/* <Stack.Screen name="(tabs)" /> */}
+    <Stack.Screen name="dashboard" />
+    <Stack.Screen name="new-game" />
   </Stack>
 );
 
