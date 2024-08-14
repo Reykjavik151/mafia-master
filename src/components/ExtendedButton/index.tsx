@@ -19,7 +19,7 @@ export const ExtendedButton = ({
     switch (type) {
       default:
       case 'primary':
-        return 'px-4 py-2';
+        return 'px-4 py-2 rounded-lg';
     }
   }, [type]);
 

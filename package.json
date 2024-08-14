@@ -21,6 +21,7 @@
     "expo-router": "~3.5.20",
     "expo-splash-screen": "~0.27.5",
     "expo-status-bar": "~1.12.1",
+    "moment": "^2.30.1",
     "nativewind": "4.0.1",
     "phosphor-react-native": "^2.1.0",
     "react": "18.2.0",

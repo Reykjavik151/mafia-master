@@ -17,7 +17,7 @@ export type GameRecord = {
   winner: PlayerTeamRole | 'draw';
 
   master: Player;
-  players: TenPlayersRecord<PlayerNumber>;
+  players: TenPlayersRecord<Player>;
   roles: TenPlayersRecord<PlayerRole>;
 
   // firstKilled: 10;
@@ -38,7 +38,7 @@ export type GameRecord = {
     }
   >;
 
-  fouls: TenPlayersRecord<PlayerNumber>;
+  fouls: Record<number, number>;
 
   score: TenPlayersRecord<GamePlayerScoreResult>;
 

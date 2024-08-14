@@ -1,19 +1,29 @@
-import React from 'react';
-import { FlatList, Text, View } from 'react-native';
+import React, { useCallback } from 'react';
+import { FlatList, ListRenderItem, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { DefaultBackgroundLinear, ExtendedButton } from '#components';
+import { DefaultBackgroundLinear, ExtendedButton, GameRecordRow } from '#components';
 import { useDashboardScreenController } from './hooks/useDashboardScreenController';
+import { GameRecord } from '#models/GameRecord';
 
 export const DashboardScreen = () => {
-  const { bottom: bottomInset } = useSafeAreaInsets();
-  const { goToNewGame } = useDashboardScreenController();
+  const { bottom: bottomInset, top: topInset } = useSafeAreaInsets();
+
+  const { gameRecords, goToNewGame } = useDashboardScreenController();
+
+  const renderGameRecordItem: ListRenderItem<GameRecord> = useCallback(({ item }) => <GameRecordRow item={item} />, []);
 
   return (
     <View className="flex-1">
       <DefaultBackgroundLinear />
 
-      <View style={{ paddingBottom: bottomInset }} className="flex-1">
-        <FlatList data={[1, 2, 3]} renderItem={() => <Text>1</Text>} className="flex-1" />
+      <View style={{ paddingBottom: bottomInset, paddingTop: topInset }} className="flex-1">
+        <FlatList
+          data={[...gameRecords, ...gameRecords, ...gameRecords]}
+          renderItem={renderGameRecordItem}
+          keyExtractor={(item) => item.id.toString()}
+          className="flex-1"
+          contentContainerClassName="flex-1 p-6 gap-6"
+        />
         <View className="self-center">
           <ExtendedButton type="primary" title="NEW GAME" onPress={goToNewGame} />
         </View>
