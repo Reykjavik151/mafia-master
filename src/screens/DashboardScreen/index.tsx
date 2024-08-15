@@ -24,7 +24,7 @@ export const DashboardScreen = () => {
 
         <View style={{ paddingBottom: bottomInset }} className="flex-1">
           <FlatList
-            data={[...gameRecords, ...gameRecords, ...gameRecords]}
+            data={gameRecords}
             renderItem={renderGameRecordItem}
             keyExtractor={keyExtractor}
             className="flex-1"

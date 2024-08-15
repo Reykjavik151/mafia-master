@@ -1,14 +1,34 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { GameRecord } from '#models/GameRecord';
+import { GameFullInfo, GameID } from '#models/GameFullInfo';
 
 type GamesState = {
+  // Short info about games for dashboard
   gameRecords: GameRecord[];
+  // Full info about games for game details
+  gameInfos: Record<GameID, GameFullInfo>;
 };
 
 const INITIAL_STATE: GamesState = {
   gameRecords: [
     {
+      id: 1,
+      datetime: new Date().toUTCString(),
+      duration: 60 * 60 * 1000,
+      gameType: 'lobby',
+      winner: 'mafia',
+    },
+    {
+      id: 2,
+      datetime: new Date().toUTCString(),
+      duration: 60 * 60 * 1000,
+      gameType: 'lobby',
+      winner: 'citizen',
+    },
+  ],
+  gameInfos: {
+    1: {
       id: 1,
       datetime: new Date().toUTCString(),
       duration: 60 * 60 * 1000,
@@ -67,7 +87,7 @@ const INITIAL_STATE: GamesState = {
 
       notes: ['4 записал тройку'],
     },
-  ],
+  },
 };
 
 export const gamesSlice = createSlice({
