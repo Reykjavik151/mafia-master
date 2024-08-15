@@ -22,15 +22,6 @@ export const FONTS = {
   JOST_REGULAR: 'Jost-Regular',
   JOST_THIN: 'Jost-Thin',
 
-  // Manrope
-  MANROPE_BOLD: 'Manrope-Bold',
-  MANROPE_EXTRABOLD: 'Manrope-ExtraBold',
-  MANROPE_EXTRALIGHT: 'Manrope-ExtraLight',
-  MANROPE_LIGHT: 'Manrope-Light',
-  MANROPE_MEDIUM: 'Manrope-Medium',
-  MANROPE_REGULAR: 'Manrope-Regular',
-  MANROPE_SEMIBOLD: 'Manrope-SemiBold',
-
   // Oswald
   OSWALD_BOLD: 'Oswald-Bold',
   OSWALD_MEDIUM: 'Oswald-Medium',

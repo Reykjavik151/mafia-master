@@ -30,15 +30,6 @@ export const useFontInit = () => {
     [FONTS.JOST_REGULAR]: require('../../assets/fonts/Jost/Jost-Regular.ttf'),
     [FONTS.JOST_THIN]: require('../../assets/fonts/Jost/Jost-Thin.ttf'),
 
-    // Manrope
-    [FONTS.MANROPE_BOLD]: require('../../assets/fonts/Manrope/Manrope-Bold.ttf'),
-    [FONTS.MANROPE_EXTRABOLD]: require('../../assets/fonts/Manrope/Manrope-ExtraBold.ttf'),
-    [FONTS.MANROPE_EXTRALIGHT]: require('../../assets/fonts/Manrope/Manrope-ExtraLight.ttf'),
-    [FONTS.MANROPE_LIGHT]: require('../../assets/fonts/Manrope/Manrope-Light.ttf'),
-    [FONTS.MANROPE_MEDIUM]: require('../../assets/fonts/Manrope/Manrope-Medium.ttf'),
-    [FONTS.MANROPE_REGULAR]: require('../../assets/fonts/Manrope/Manrope-Regular.ttf'),
-    [FONTS.MANROPE_SEMIBOLD]: require('../../assets/fonts/Manrope/Manrope-SemiBold.ttf'),
-
     // Oswald
     [FONTS.OSWALD_BOLD]: require('../../assets/fonts/Oswald/Oswald-Bold.ttf'),
     [FONTS.OSWALD_MEDIUM]: require('../../assets/fonts/Oswald/Oswald-Medium.ttf'),
