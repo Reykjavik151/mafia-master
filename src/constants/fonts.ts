@@ -1,4 +1,27 @@
 export const FONTS = {
+  // FiraSans
+  FIRASANS_BLACK: 'FiraSans-Black',
+  FIRASANS_BOLD: 'FiraSans-Bold',
+  FIRASANS_ITALIC: 'FiraSans-Italic',
+  FIRASANS_MEDIUM: 'FiraSans-Medium',
+  FIRASANS_REGULAR: 'FiraSans-Regular',
+
+  // Inter
+  INTER_BLACK: 'Inter-Black',
+  INTER_BOLD: 'Inter-Bold',
+  INTER_MEDIUM: 'Inter-Medium',
+  INTER_REGULAR: 'Inter-Regular',
+  INTER_SEMIBOLD: 'Inter-SemiBold',
+  INTER_THIN: 'Inter-Thin',
+
+  // Jost
+  JOST_BLACK: 'Jost-Black',
+  JOST_BOLD: 'Jost-Bold',
+  JOST_LIGHT: 'Jost-Light',
+  JOST_MEDIUM: 'Jost-Medium',
+  JOST_REGULAR: 'Jost-Regular',
+  JOST_THIN: 'Jost-Thin',
+
   // Manrope
   MANROPE_BOLD: 'Manrope-Bold',
   MANROPE_EXTRABOLD: 'Manrope-ExtraBold',
@@ -7,13 +30,6 @@ export const FONTS = {
   MANROPE_MEDIUM: 'Manrope-Medium',
   MANROPE_REGULAR: 'Manrope-Regular',
   MANROPE_SEMIBOLD: 'Manrope-SemiBold',
-
-  // FiraSans
-  FIRASANS_BLACK: 'FiraSans-Black',
-  FIRASANS_BOLD: 'FiraSans-Bold',
-  FIRASANS_ITALIC: 'FiraSans-Italic',
-  FIRASANS_MEDIUM: 'FiraSans-Medium',
-  FIRASANS_REGULAR: 'FiraSans-Regular',
 
   // Oswald
   OSWALD_BOLD: 'Oswald-Bold',

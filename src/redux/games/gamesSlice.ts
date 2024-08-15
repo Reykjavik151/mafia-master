@@ -17,14 +17,14 @@ const INITIAL_STATE: GamesState = {
       datetime: new Date().toUTCString(),
       duration: 60 * 60 * 1000,
       gameType: 'lobby',
-      winner: 'mafia',
+      master: 'Opium',
     },
     {
       id: 2,
       datetime: new Date().toUTCString(),
       duration: 60 * 60 * 1000,
       gameType: 'lobby',
-      winner: 'citizen',
+      master: 'Opium',
     },
   ],
   gameInfos: {

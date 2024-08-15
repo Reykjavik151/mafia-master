@@ -14,6 +14,22 @@ export const useFontInit = () => {
     [FONTS.FIRASANS_MEDIUM]: require('../../assets/fonts/FiraSans/FiraSans-Medium.ttf'),
     [FONTS.FIRASANS_REGULAR]: require('../../assets/fonts/FiraSans/FiraSans-Regular.ttf'),
 
+    // Inter
+    [FONTS.INTER_BLACK]: require('../../assets/fonts/Inter/Inter-Black.ttf'),
+    [FONTS.INTER_BOLD]: require('../../assets/fonts/Inter/Inter-Bold.ttf'),
+    [FONTS.INTER_MEDIUM]: require('../../assets/fonts/Inter/Inter-Medium.ttf'),
+    [FONTS.INTER_REGULAR]: require('../../assets/fonts/Inter/Inter-Regular.ttf'),
+    [FONTS.INTER_SEMIBOLD]: require('../../assets/fonts/Inter/Inter-SemiBold.ttf'),
+    [FONTS.INTER_THIN]: require('../../assets/fonts/Inter/Inter-Thin.ttf'),
+
+    // Jost
+    [FONTS.JOST_BLACK]: require('../../assets/fonts/Jost/Jost-Black.ttf'),
+    [FONTS.JOST_BOLD]: require('../../assets/fonts/Jost/Jost-Bold.ttf'),
+    [FONTS.JOST_LIGHT]: require('../../assets/fonts/Jost/Jost-Light.ttf'),
+    [FONTS.JOST_MEDIUM]: require('../../assets/fonts/Jost/Jost-Medium.ttf'),
+    [FONTS.JOST_REGULAR]: require('../../assets/fonts/Jost/Jost-Regular.ttf'),
+    [FONTS.JOST_THIN]: require('../../assets/fonts/Jost/Jost-Thin.ttf'),
+
     // Manrope
     [FONTS.MANROPE_BOLD]: require('../../assets/fonts/Manrope/Manrope-Bold.ttf'),
     [FONTS.MANROPE_EXTRABOLD]: require('../../assets/fonts/Manrope/Manrope-ExtraBold.ttf'),

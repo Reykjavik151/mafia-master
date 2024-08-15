@@ -11,4 +11,7 @@ export const generalStyles = StyleSheet.create({
     top: 0,
     bottom: 0,
   },
+  ['rounded-6']: {
+    borderRadius: 6,
+  },
 });
