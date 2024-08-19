@@ -16,16 +16,14 @@ export const GameRecordRowComponent = ({ item, onPress: onPressProp }: GameRecor
 
   return (
     <Pressable onPress={onPress}>
-      <View className="bg-secondary p-4 border-[2px] border-primaryAccent rounded-lg">
-        <Text className="text-2xl font-firasans-bold text-primaryAccent">
+      <View className="bg-secondary p-4 border-[2px] border-grey3 rounded-lg">
+        <Text className="text-2xl font-firasans-bold text-grey3">
           {item.master}'s {capitalize(item.gameType)}
         </Text>
-        <Text className="text-xl font-inter-medium text-primaryAccent">
+        <Text className="text-xl font-inter-medium text-grey3">
           {moment(item.datetime).format('DD MMMM yyyy, HH:mm')}
         </Text>
-        <Text className="text-xl text-primaryAccent font-inter-medium">
-          Duration: {moment(item.duration).format('HH:mm')}
-        </Text>
+        <Text className="text-xl text-grey3 font-inter-medium">Duration: {moment(item.duration).format('HH:mm')}</Text>
       </View>
     </Pressable>
   );

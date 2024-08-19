@@ -27,7 +27,7 @@ export const GameInfoScreen = () => {
           onComplete={() => console.log('finish')}
         >
           {({ remainingTime }: TimeProps) => (
-            <Text className="text-primaryAccent text-6xl font-inter-bold pt-4">{remainingTime}</Text>
+            <Text className="text-grey3 text-6xl font-inter-bold pt-4">{remainingTime}</Text>
           )}
         </CountdownCircleTimer>
       </View>

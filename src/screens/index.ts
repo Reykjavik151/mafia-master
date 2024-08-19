@@ -1,4 +1,5 @@
-export { WelcomeScreen } from './WelcomeScreen';
 export { DashboardScreen } from './DashboardScreen';
-export { NewGameScreen } from './NewGameScreen';
 export { GameInfoScreen } from './GameInfoScreen';
+export { LoginScreen } from './LoginScreen';
+export { NewGameScreen } from './NewGameScreen';
+export { WelcomeScreen } from './WelcomeScreen';

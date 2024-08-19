@@ -16,7 +16,7 @@ type GamePlayerProps = {
 export const GamePlayer = ({ num, nickname, role, isRoleVisible }: GamePlayerProps) => {
   const containerClassNames = useMemo(() => {
     if (!isRoleVisible) {
-      return 'bg-secondary border-2 border-primaryAccent';
+      return 'bg-secondary border-2 border-grey3';
     }
 
     switch (role) {
@@ -27,13 +27,13 @@ export const GamePlayer = ({ num, nickname, role, isRoleVisible }: GamePlayerPro
       case 'mafia':
         return 'bg-grayAccent';
       case 'don':
-        return 'bg-primaryAccent';
+        return 'bg-grey3';
     }
   }, [role, isRoleVisible]);
 
   const InnerContent = useMemo(() => {
     if (!isRoleVisible) {
-      return <Text className="font-jost-bold text-primaryAccent text-2xl pt-1">{num}</Text>;
+      return <Text className="font-jost-bold text-grey3 text-2xl pt-1">{num}</Text>;
     }
 
     let Icon: IconType;
@@ -66,7 +66,7 @@ export const GamePlayer = ({ num, nickname, role, isRoleVisible }: GamePlayerPro
         {isRoleVisible && <Text className="mx-auto absolute top-0 font-jost-bold text-primary text-2xl">{num}</Text>}
         {InnerContent}
       </View>
-      <Text className="text-primaryAccent font-inter-regular text-md text-center pt-1 w-[60px]" numberOfLines={1}>
+      <Text className="text-grey3 font-inter-regular text-md text-center pt-1 w-[60px]" numberOfLines={1}>
         {nickname}
       </Text>
     </View>

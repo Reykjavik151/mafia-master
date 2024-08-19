@@ -27,7 +27,7 @@ export const ExtendedButton = ({
     switch (type) {
       default:
       case 'primary':
-        return 'bg-secondaryAccent border-[2px] border-primaryAccent';
+        return 'bg-secondaryAccent border-[1px] border-grey3';
     }
   }, [type]);
 
@@ -35,14 +35,14 @@ export const ExtendedButton = ({
     switch (type) {
       default:
       case 'primary':
-        return 'bg-secondaryAccent border-[2px] border-secondaryAccent';
+        return 'bg-secondaryAccent border-[1px] border-secondaryAccent';
     }
   }, [type]);
 
   const InnerContent = useMemo(() => {
     switch (type) {
       case 'primary':
-        return <Text className="text-primaryAccent font-firasans-bold text-2xl">{restProps.title}</Text>;
+        return <Text className="text-grey3 font-firasans-bold text-2xl text-center">{restProps.title}</Text>;
     }
   }, [restProps.title, type]);
 
