@@ -13,6 +13,7 @@ export const LoginScreen = () => {
     onNicknameEmailInputValueChange,
     onPasswordInputValueChange,
     onSignIn,
+    onSignUpViaTelegram,
   } = useLoginScreenController();
 
   return (
@@ -52,7 +53,12 @@ export const LoginScreen = () => {
           </View>
 
           <View className="w-full mt-2">
-            <ExtendedButton type="secondary" LeftIcon={TelegramLogo} title="Sign in via Telegram" onPress={onSignIn} />
+            <ExtendedButton
+              type="secondary"
+              LeftIcon={TelegramLogo}
+              title="Sign up via Telegram"
+              onPress={onSignUpViaTelegram}
+            />
           </View>
 
           <View className="h-10" />

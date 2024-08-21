@@ -15,9 +15,14 @@ export const useLoginScreenController = () => {
     console.log('call login API here');
   }, []);
 
+  const onSignUpViaTelegram = useCallback(() => {
+    console.log('link sign up via telegram here');
+  }, []);
+
   return {
     passwordInputRef,
     onSignIn,
+    onSignUpViaTelegram,
     nicknameEmailInputValue,
     passwordInputValue,
     onPasswordInputValueChange: setPasswordInputValue,
