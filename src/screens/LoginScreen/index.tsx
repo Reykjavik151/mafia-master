@@ -1,6 +1,6 @@
 import React from 'react';
-import { KeyboardAvoidingView, ScrollView, View } from 'react-native';
-import { DefaultBackgroundLinear, ExtendedButton, Input } from '#components';
+import { KeyboardAvoidingView, ScrollView, View, Text } from 'react-native';
+import { DefaultBackgroundLinear, ExtendedButton, ExtendedTextInput } from '#components';
 import { useLoginScreenController } from './hooks/useLoginScreenController';
 import { COLORS } from '#constants/colors';
 import { CowboyHat, TelegramLogo } from 'phosphor-react-native';
@@ -24,7 +24,10 @@ export const LoginScreen = () => {
         <KeyboardAvoidingView className="flex-1 items-center justify-center" behavior="padding">
           <CowboyHat color={COLORS.grey3} size={120} />
 
-          <Input
+          <Text className="text-grey3 font-firasans-black text-4xl text-center pb-8">MAFIA MASTER</Text>
+
+          <ExtendedTextInput
+            autoFocus
             value={nicknameEmailInputValue}
             onChangeText={onNicknameEmailInputValueChange}
             placeholder="Nickname or email"
@@ -36,7 +39,7 @@ export const LoginScreen = () => {
 
           <View className="h-3" />
 
-          <Input
+          <ExtendedTextInput
             ref={passwordInputRef}
             value={passwordInputValue}
             onChangeText={onPasswordInputValueChange}
@@ -60,8 +63,6 @@ export const LoginScreen = () => {
               onPress={onSignUpViaTelegram}
             />
           </View>
-
-          <View className="h-10" />
         </KeyboardAvoidingView>
       </ScrollView>
     </View>
