@@ -1,5 +1,6 @@
 import { MAFIA_MAX_PLAYERS } from '#constants/mafia';
 import { PLAYERS_DUMMY } from '#models/dummy/players.dummy';
+import { selectionAsync } from 'expo-haptics';
 import { useRouter } from 'expo-router';
 import { useCallback, useMemo, useState } from 'react';
 
@@ -26,6 +27,8 @@ export const useNewGameScreenController = () => {
   }, [searchInputValue]);
 
   const onPlayerPress = useCallback((playerId: string) => {
+    selectionAsync();
+
     setSelectedPlayerIds((prev) => {
       // Deselect player
       if (prev.includes(playerId)) {

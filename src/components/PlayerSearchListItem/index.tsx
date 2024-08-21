@@ -17,8 +17,6 @@ export const PlayerSearchListItem = React.memo(
       onPressProp?.(id);
     }, [id, onPressProp]);
 
-    console.log('item', id);
-
     return (
       <Pressable onPress={onPress} className="flex basis-1/3 items-center">
         <View

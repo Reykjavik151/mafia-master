@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { Icon } from 'phosphor-react-native';
 import { useCallback, useMemo, useState } from 'react';
 import { GestureResponderEvent, Pressable, PressableProps, Text, View } from 'react-native';
+import { notificationAsync } from 'expo-haptics';
 
 export type ExtendedButtonProps = PressableProps &
   (
@@ -21,6 +22,7 @@ export const ExtendedButton = ({
   type,
   onPressIn: onPressInProp,
   onPressOut: onPressOutProp,
+  onPress: onPressProp,
   ...restProps
 }: ExtendedButtonProps) => {
   const [isPressed, setIsPressed] = useState(false);
@@ -93,6 +95,14 @@ export const ExtendedButton = ({
     [onPressOutProp],
   );
 
+  const onPress = useCallback(
+    (event: GestureResponderEvent) => {
+      onPressProp?.(event);
+      notificationAsync();
+    },
+    [onPressProp],
+  );
+
   return (
     <Pressable
       className={clsx(
@@ -102,6 +112,7 @@ export const ExtendedButton = ({
       )}
       onPressIn={onPressIn}
       onPressOut={onPressOut}
+      onPress={onPress}
       {...restProps}
     >
       {InnerContent}

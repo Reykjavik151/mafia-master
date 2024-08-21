@@ -3,8 +3,11 @@ import { View } from 'react-native';
 import { DefaultBackgroundLinear, Header, SearchBar, PlayerSearchList, ExtendedButton } from '#components';
 import { useNewGameScreenController } from './hooks/useNewGameScreenController';
 import { MAFIA_MAX_PLAYERS } from '#constants/mafia';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export const NewGameScreen = () => {
+  const { bottom: bottomInset } = useSafeAreaInsets();
+
   const {
     searchInputValue,
     setSearchInputValue,
@@ -20,7 +23,7 @@ export const NewGameScreen = () => {
 
       <Header title="NEW GAME" />
 
-      <View className="flex-1">
+      <View className="flex-1" style={{ paddingBottom: bottomInset }}>
         <View className="p-6 pb-0">
           <SearchBar
             value={searchInputValue}
@@ -35,7 +38,7 @@ export const NewGameScreen = () => {
           selectedPlayerIds={selectedPlayerIds}
         />
 
-        <View className="p-6">
+        <View className="p-6 pb-0">
           <ExtendedButton
             disabled={selectedPlayerIds.length < MAFIA_MAX_PLAYERS}
             type="primary"
