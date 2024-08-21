@@ -5,3 +5,4 @@ export { GamePlayer } from './GamePlayer';
 export { GameRecordRow } from './GameRecordRow';
 export { GameTable } from './GameTable';
 export { Header } from './Header';
+export { SearchBar } from './SearchBar';

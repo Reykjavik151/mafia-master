@@ -20,7 +20,7 @@ export const LoginScreen = () => {
     <View className="flex-1">
       <DefaultBackgroundLinear />
 
-      <ScrollView className="flex-1" contentContainerClassName="flex-1 px-6">
+      <ScrollView className="flex-1" contentContainerClassName="flex-1 px-6" keyboardShouldPersistTaps="handled">
         <KeyboardAvoidingView className="flex-1 items-center justify-center" behavior="padding">
           <CowboyHat color={COLORS.grey3} size={120} />
 

@@ -1,16 +1,20 @@
 import React from 'react';
 import { View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { DefaultBackgroundLinear, GameTable } from '#components';
+import { DefaultBackgroundLinear, Header, SearchBar } from '#components';
+import { useNewGameScreenController } from './hooks/useNewGameScreenController';
 
 export const NewGameScreen = () => {
-  const { top: topInset } = useSafeAreaInsets();
+  const { searchInputValue, setSearchInputValue } = useNewGameScreenController();
 
   return (
-    <View style={{ paddingTop: topInset }} className="flex-1">
+    <View className="flex-1">
       <DefaultBackgroundLinear />
 
-      <GameTable isRolesVisible={false} />
+      <Header title="NEW GAME" />
+
+      <View className="flex-1">
+        <SearchBar value={searchInputValue} onChangeText={setSearchInputValue} />
+      </View>
     </View>
   );
 };
