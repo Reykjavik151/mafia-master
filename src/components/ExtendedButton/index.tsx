@@ -52,6 +52,15 @@ export const ExtendedButton = ({
     }
   }, [type]);
 
+  const disabledContainerClassNames = useMemo(() => {
+    switch (type) {
+      default:
+      case 'primary':
+      case 'secondary':
+        return 'opacity-50';
+    }
+  }, [type]);
+
   const InnerContent = useMemo(() => {
     switch (type) {
       case 'primary':
@@ -86,7 +95,11 @@ export const ExtendedButton = ({
 
   return (
     <Pressable
-      className={clsx(containerClassNames, !isPressed ? notPressedContainerClassNames : pressedContainerClassNames)}
+      className={clsx(
+        containerClassNames,
+        restProps.disabled && disabledContainerClassNames,
+        !isPressed ? notPressedContainerClassNames : pressedContainerClassNames,
+      )}
       onPressIn={onPressIn}
       onPressOut={onPressOut}
       {...restProps}

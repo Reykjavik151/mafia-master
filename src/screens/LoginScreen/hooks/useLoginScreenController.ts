@@ -14,7 +14,8 @@ export const useLoginScreenController = () => {
 
   const onSignIn = useCallback(() => {
     console.log('TODO: call login API here');
-    router.navigate('/dashboard');
+    router.back();
+    router.replace('/dashboard');
   }, []);
 
   const onSignUpViaTelegram = useCallback(() => {
