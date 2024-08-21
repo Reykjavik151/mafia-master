@@ -1,11 +1,12 @@
+import React, { forwardRef } from 'react';
 import { TextInput, TextInputProps, View } from 'react-native';
 
-type InputProps = TextInputProps;
-
-export const Input = ({ ...rest }: InputProps) => {
+export const Input = forwardRef<TextInput, TextInputProps>(({ ...rest }, ref) => {
   return (
     <View className="w-full border-[1px] border-grey5 rounded-lg bg-grey10 justify-center">
-      <TextInput className="text-base text-grey3 p-3 pt-[6px]" placeholderClassName="text-grey7" {...rest} />
+      <TextInput ref={ref} className="text-xl text-grey3 p-3 pt-[6px]" placeholderClassName="text-grey7" {...rest} />
     </View>
   );
-};
+});
+
+Input.displayName = 'Input';

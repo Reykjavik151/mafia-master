@@ -3,13 +3,14 @@ import { KeyboardAvoidingView, ScrollView, View } from 'react-native';
 import { DefaultBackgroundLinear, ExtendedButton, Input } from '#components';
 import { useLoginScreenController } from './hooks/useLoginScreenController';
 import { COLORS } from '#constants/colors';
-import { CowboyHat } from 'phosphor-react-native';
+import { CowboyHat, TelegramLogo } from 'phosphor-react-native';
 
 export const LoginScreen = () => {
   const {
+    passwordInputRef,
     nicknameEmailInputValue,
     passwordInputValue,
-    onLoginEmailInputValueChange,
+    onNicknameEmailInputValueChange,
     onPasswordInputValueChange,
     onSignIn,
   } = useLoginScreenController();
@@ -24,25 +25,37 @@ export const LoginScreen = () => {
 
           <Input
             value={nicknameEmailInputValue}
-            onChangeText={onLoginEmailInputValueChange}
+            onChangeText={onNicknameEmailInputValueChange}
             placeholder="Nickname or email"
-            keyboardType="email-address"
+            autoCorrect={false}
+            textContentType="oneTimeCode"
+            returnKeyType="next"
+            onSubmitEditing={() => passwordInputRef.current?.focus()}
           />
 
-          <View className="h-4" />
+          <View className="h-3" />
 
           <Input
+            ref={passwordInputRef}
             value={passwordInputValue}
             onChangeText={onPasswordInputValueChange}
             secureTextEntry
             placeholder="Password"
+            autoCorrect={false}
+            textContentType="oneTimeCode"
+            returnKeyType="go"
+            onSubmitEditing={onSignIn}
           />
 
           <View className="w-full mt-6">
             <ExtendedButton type="primary" title="Log in" onPress={onSignIn} />
           </View>
 
-          <View className="h-20" />
+          <View className="w-full mt-2">
+            <ExtendedButton type="secondary" LeftIcon={TelegramLogo} title="Sign in via Telegram" onPress={onSignIn} />
+          </View>
+
+          <View className="h-10" />
         </KeyboardAvoidingView>
       </ScrollView>
     </View>

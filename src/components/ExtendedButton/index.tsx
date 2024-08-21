@@ -1,11 +1,21 @@
+import { COLORS } from '#constants/colors';
 import clsx from 'clsx';
+import { Icon } from 'phosphor-react-native';
 import { useCallback, useMemo, useState } from 'react';
-import { GestureResponderEvent, Pressable, PressableProps, Text } from 'react-native';
+import { GestureResponderEvent, Pressable, PressableProps, Text, View } from 'react-native';
 
-export type ExtendedButtonProps = PressableProps & {
-  type: 'primary';
-  title: string;
-};
+export type ExtendedButtonProps = PressableProps &
+  (
+    | {
+        type: 'primary';
+        title: string;
+      }
+    | {
+        type: 'secondary';
+        title: string;
+        LeftIcon?: Icon;
+      }
+  );
 
 export const ExtendedButton = ({
   type,
@@ -19,7 +29,8 @@ export const ExtendedButton = ({
     switch (type) {
       default:
       case 'primary':
-        return 'px-4 py-2 rounded-lg';
+      case 'secondary':
+        return 'px-4 py-3 rounded-lg';
     }
   }, [type]);
 
@@ -28,6 +39,8 @@ export const ExtendedButton = ({
       default:
       case 'primary':
         return 'bg-secondaryAccent border-[1px] border-grey3';
+      case 'secondary':
+        return 'bg-grey9 border-[1px] border-grey8';
     }
   }, [type]);
 
@@ -42,9 +55,18 @@ export const ExtendedButton = ({
   const InnerContent = useMemo(() => {
     switch (type) {
       case 'primary':
-        return <Text className="text-grey3 font-firasans-bold text-2xl text-center">{restProps.title}</Text>;
+        return <Text className="text-grey3 font-inter-black text-xl text-center">{restProps.title}</Text>;
+      case 'secondary':
+        const { LeftIcon } = restProps as { LeftIcon: Icon };
+
+        return (
+          <View className="flex-row justify-center items-center gap-3">
+            {!!LeftIcon && <LeftIcon size={24} color={COLORS.grey3} />}
+            <Text className="text-grey3 font-inter-black text-xl text-center">{restProps.title}</Text>
+          </View>
+        );
     }
-  }, [restProps.title, type]);
+  }, [restProps, type]);
 
   const onPressIn = useCallback(
     (event: GestureResponderEvent) => {
