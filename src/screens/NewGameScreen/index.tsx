@@ -13,7 +13,13 @@ export const NewGameScreen = () => {
       <Header title="NEW GAME" />
 
       <View className="flex-1">
-        <SearchBar value={searchInputValue} onChangeText={setSearchInputValue} />
+        <View className="p-6">
+          <SearchBar
+            value={searchInputValue}
+            onChangeText={setSearchInputValue}
+            placeholder="Type a nickname or a name..."
+          />
+        </View>
       </View>
     </View>
   );

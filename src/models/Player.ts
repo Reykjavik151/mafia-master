@@ -1,2 +1,7 @@
-// TODO: extend this type and make it saved online
-export type Player = string;
+export type Player = {
+  id: string;
+  nickname: string;
+  fullname: string;
+
+  // TODO: stats?
+};

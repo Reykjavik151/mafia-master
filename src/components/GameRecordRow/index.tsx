@@ -18,7 +18,7 @@ export const GameRecordRowComponent = ({ item, onPress: onPressProp }: GameRecor
     <Pressable onPress={onPress}>
       <View className="bg-secondary p-4 border-[2px] border-grey3 rounded-lg">
         <Text className="text-2xl font-firasans-bold text-grey3">
-          {item.master}'s {capitalize(item.gameType)}
+          {item.master.nickname}'s {capitalize(item.gameType)}
         </Text>
         <Text className="text-xl font-inter-medium text-grey3">
           {moment(item.datetime).format('DD MMMM yyyy, HH:mm')}

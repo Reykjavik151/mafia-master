@@ -2,6 +2,19 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { GameRecord } from '#models/GameRecord';
 import { GameFullInfo, GameID } from '#models/GameFullInfo';
+import {
+  ADAMANT_PLAYER_DUMMY,
+  BARABAN_PLAYER_DUMMY,
+  FENIX_PLAYER_DUMMY,
+  JENNIE_PLAYER_DUMMY,
+  KABLUK_PLAYER_DUMMY,
+  KLAY_PLAYER_DUMMY,
+  MARSIANKA_PLAYER_DUMMY,
+  MOMENT_PLAYER_DUMMY,
+  OPIUM_PLAYER_DUMMY,
+  PADDINGTON_PLAYER_DUMMY,
+  RUBY_PLAYER_DUMMY,
+} from '#models/dummy/players.dummy';
 
 type GamesState = {
   // Short info about games for dashboard
@@ -17,14 +30,14 @@ const INITIAL_STATE: GamesState = {
       datetime: new Date().toUTCString(),
       duration: 60 * 60 * 1000,
       gameType: 'lobby',
-      master: 'Opium',
+      master: OPIUM_PLAYER_DUMMY,
     },
     {
       id: 2,
       datetime: new Date().toUTCString(),
       duration: 60 * 60 * 1000,
       gameType: 'lobby',
-      master: 'Opium',
+      master: OPIUM_PLAYER_DUMMY,
     },
   ],
   gameInfos: {
@@ -35,18 +48,18 @@ const INITIAL_STATE: GamesState = {
       gameType: 'lobby',
       winner: 'mafia',
 
-      master: 'Opium',
+      master: OPIUM_PLAYER_DUMMY,
       players: {
-        1: 'Fenix',
-        2: 'Marsianka',
-        3: 'Jennie',
-        4: 'Klay',
-        5: 'Kabluk',
-        6: 'Adamant',
-        7: 'Moment',
-        8: 'Ruby',
-        9: 'Paddington',
-        10: 'Baraban',
+        1: FENIX_PLAYER_DUMMY,
+        2: MARSIANKA_PLAYER_DUMMY,
+        3: JENNIE_PLAYER_DUMMY,
+        4: KABLUK_PLAYER_DUMMY,
+        5: KLAY_PLAYER_DUMMY,
+        6: MOMENT_PLAYER_DUMMY,
+        7: RUBY_PLAYER_DUMMY,
+        8: PADDINGTON_PLAYER_DUMMY,
+        9: BARABAN_PLAYER_DUMMY,
+        10: ADAMANT_PLAYER_DUMMY,
       },
       roles: {
         1: 'mafia',
