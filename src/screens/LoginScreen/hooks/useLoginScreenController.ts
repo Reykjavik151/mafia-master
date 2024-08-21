@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import { useCallback, useRef, useState } from 'react';
 import { TextInput } from 'react-native';
 
@@ -12,11 +13,12 @@ export const useLoginScreenController = () => {
   }, []);
 
   const onSignIn = useCallback(() => {
-    console.log('call login API here');
+    console.log('TODO: call login API here');
+    router.navigate('/dashboard');
   }, []);
 
   const onSignUpViaTelegram = useCallback(() => {
-    console.log('link sign up via telegram here');
+    console.log('TODO: link sign up via telegram here');
   }, []);
 
   return {
