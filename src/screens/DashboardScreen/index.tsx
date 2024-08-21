@@ -30,8 +30,8 @@ export const DashboardScreen = () => {
             className="flex-1"
             contentContainerClassName="flex-1 p-6 gap-6"
           />
-          <View className="self-center">
-            <ExtendedButton type="primary" title="NEW GAME" onPress={goToNewGame} />
+          <View className="px-6">
+            <ExtendedButton type="primary" title="Start Game" onPress={goToNewGame} />
           </View>
         </View>
       </View>
