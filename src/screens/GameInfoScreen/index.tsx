@@ -1,23 +1,18 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { DefaultBackgroundLinear, Header } from '#components';
+import { DefaultScreenContainer, Header } from '#components';
 import { useGameInfoScreenController } from './hooks/useGameInfoScreenController';
-import { CountdownCircleTimer, ColorFormat, TimeProps } from 'react-native-countdown-circle-timer';
+import { CountdownCircleTimer, TimeProps } from 'react-native-countdown-circle-timer';
 import { COLORS } from '#constants/colors';
 
 export const GameInfoScreen = () => {
-  const { bottom: bottomInset } = useSafeAreaInsets();
-
   const {} = useGameInfoScreenController();
 
   return (
-    <View className="flex-1">
-      <Header title="GAME INFO" />
+    <DefaultScreenContainer>
+      <Header title="Game Information" />
 
       <View className="flex-1 justify-center items-center">
-        <DefaultBackgroundLinear />
-
         <CountdownCircleTimer
           isPlaying
           rotation="counterclockwise"
@@ -31,6 +26,6 @@ export const GameInfoScreen = () => {
           )}
         </CountdownCircleTimer>
       </View>
-    </View>
+    </DefaultScreenContainer>
   );
 };

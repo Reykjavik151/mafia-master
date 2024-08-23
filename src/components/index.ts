@@ -1,4 +1,5 @@
 export { DefaultBackgroundLinear } from './DefaultBackgroundLinear';
+export { DefaultScreenContainer } from './DefaultScreenContainer';
 export { ExtendedButton } from './ExtendedButton';
 export { ExtendedTextInput } from './ExtendedTextInput';
 export { GamePlayer } from './GamePlayer';

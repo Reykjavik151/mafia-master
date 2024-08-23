@@ -1,6 +1,6 @@
 import React from 'react';
 import { KeyboardAvoidingView, ScrollView, View, Text } from 'react-native';
-import { DefaultBackgroundLinear, ExtendedButton, ExtendedTextInput } from '#components';
+import { DefaultScreenContainer, ExtendedButton, ExtendedTextInput } from '#components';
 import { useLoginScreenController } from './hooks/useLoginScreenController';
 import { COLORS } from '#constants/colors';
 import { CowboyHat, TelegramLogo } from 'phosphor-react-native';
@@ -17,9 +17,7 @@ export const LoginScreen = () => {
   } = useLoginScreenController();
 
   return (
-    <View className="flex-1">
-      <DefaultBackgroundLinear />
-
+    <DefaultScreenContainer>
       <ScrollView className="flex-1" contentContainerClassName="flex-1 px-6" keyboardShouldPersistTaps="handled">
         <KeyboardAvoidingView className="flex-1 items-center justify-center" behavior="padding">
           <CowboyHat color={COLORS.grey3} size={120} />
@@ -67,6 +65,6 @@ export const LoginScreen = () => {
           </View>
         </KeyboardAvoidingView>
       </ScrollView>
-    </View>
+    </DefaultScreenContainer>
   );
 };

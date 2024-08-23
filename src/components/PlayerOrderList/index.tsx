@@ -37,7 +37,7 @@ export const PlayerOrderList = () => {
   };
 
   return (
-    <GestureHandlerRootView className="flex-1">
+    <GestureHandlerRootView className="flex-1 bg-transparent">
       <DraggableFlatList
         data={data}
         onDragEnd={({ data }) => setData(data)}

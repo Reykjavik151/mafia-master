@@ -35,7 +35,7 @@ export const PlayerSearchList = ({ data, selectedPlayerIds, onPlayerPress }: Pla
       data={data}
       renderItem={renderSearchPlayerItem}
       keyExtractor={keyExtractor}
-      contentContainerClassName="p-6 gap-6"
+      contentContainerClassName="py-6 flex-1 gap-6"
     />
   );
 };

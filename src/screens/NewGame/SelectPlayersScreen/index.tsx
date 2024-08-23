@@ -1,13 +1,17 @@
 import React from 'react';
 import { View } from 'react-native';
-import { DefaultBackgroundLinear, Header, SearchBar, PlayerSearchList, ExtendedButton } from '#components';
+import {
+  DefaultBackgroundLinear,
+  Header,
+  SearchBar,
+  PlayerSearchList,
+  ExtendedButton,
+  DefaultScreenContainer,
+} from '#components';
 import { useSelectPlayersScreenController } from './hooks/useSelectPlayersScreenController';
 import { MAFIA_MAX_PLAYERS } from '#constants/mafia';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export const SelectPlayersScreen = () => {
-  const { bottom: bottomInset } = useSafeAreaInsets();
-
   const {
     searchInputValue,
     setSearchInputValue,
@@ -18,13 +22,11 @@ export const SelectPlayersScreen = () => {
   } = useSelectPlayersScreenController();
 
   return (
-    <View className="flex-1">
-      <DefaultBackgroundLinear />
-
+    <DefaultScreenContainer>
       <Header title="Select Players" />
 
-      <View className="flex-1" style={{ paddingBottom: bottomInset }}>
-        <View className="p-6 pb-0">
+      <View className="flex-1">
+        <View className="py-6 pb-0">
           <SearchBar
             value={searchInputValue}
             onChangeText={setSearchInputValue}
@@ -38,15 +40,13 @@ export const SelectPlayersScreen = () => {
           selectedPlayerIds={selectedPlayerIds}
         />
 
-        <View className="p-6 pb-0">
-          <ExtendedButton
-            disabled={selectedPlayerIds.length < MAFIA_MAX_PLAYERS}
-            type="primary"
-            title="Next"
-            onPress={onNextPress}
-          />
-        </View>
+        <ExtendedButton
+          disabled={selectedPlayerIds.length < MAFIA_MAX_PLAYERS}
+          type="primary"
+          title="Next"
+          onPress={onNextPress}
+        />
       </View>
-    </View>
+    </DefaultScreenContainer>
   );
 };
