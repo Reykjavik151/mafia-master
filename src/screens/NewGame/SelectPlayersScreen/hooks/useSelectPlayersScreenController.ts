@@ -4,7 +4,7 @@ import { selectionAsync } from 'expo-haptics';
 import { useRouter } from 'expo-router';
 import { useCallback, useMemo, useState } from 'react';
 
-export const useNewGameScreenController = () => {
+export const useSelectPlayersScreenController = () => {
   const router = useRouter();
 
   // const [players] = useState<Player[]>(PLAYERS_DUMMY.slice());
@@ -47,8 +47,7 @@ export const useNewGameScreenController = () => {
 
   const onNextPress = useCallback(() => {
     console.log('TODO: dispatch redux action to set players');
-    // TODO:
-    router.navigate('/dashboard');
+    router.navigate('/new-game/select-player-seats');
   }, [router]);
 
   return {

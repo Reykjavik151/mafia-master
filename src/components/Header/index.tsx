@@ -13,7 +13,7 @@ export const Header = ({ title, leftAbsoluteElement, rightAbsoluteElement }: Hea
 
   return (
     <View style={{ paddingTop: topInset }} className="bg-primary">
-      <View className="pt-2 pb-4 row items-center">
+      <View className="py-2 pb-1 row items-center">
         {!!leftAbsoluteElement && (
           <View className="absolute left-0 top-0 bottom-0 justify-center">{leftAbsoluteElement}</View>
         )}

@@ -20,7 +20,7 @@ export const useDashboardScreenController = () => {
   );
 
   const goToNewGame = useCallback(() => {
-    router.navigate('/new-game');
+    router.navigate('/new-game/select-players');
   }, [router]);
 
   return {

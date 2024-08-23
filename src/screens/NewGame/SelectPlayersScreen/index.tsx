@@ -1,11 +1,11 @@
 import React from 'react';
 import { View } from 'react-native';
 import { DefaultBackgroundLinear, Header, SearchBar, PlayerSearchList, ExtendedButton } from '#components';
-import { useNewGameScreenController } from './hooks/useNewGameScreenController';
+import { useSelectPlayersScreenController } from './hooks/useSelectPlayersScreenController';
 import { MAFIA_MAX_PLAYERS } from '#constants/mafia';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-export const NewGameScreen = () => {
+export const SelectPlayersScreen = () => {
   const { bottom: bottomInset } = useSafeAreaInsets();
 
   const {
@@ -15,13 +15,13 @@ export const NewGameScreen = () => {
     selectedPlayerIds,
     onPlayerPress,
     onNextPress,
-  } = useNewGameScreenController();
+  } = useSelectPlayersScreenController();
 
   return (
     <View className="flex-1">
       <DefaultBackgroundLinear />
 
-      <Header title="NEW GAME" />
+      <Header title="Select Players" />
 
       <View className="flex-1" style={{ paddingBottom: bottomInset }}>
         <View className="p-6 pb-0">

@@ -14,7 +14,9 @@ export const SearchBar = ({ ...rest }: TextInputProps) => {
         className="flex-1 text-xl text-grey3 p-3 pt-[6px]"
         placeholderClassName="text-grey6"
         selectionColor={COLORS.citizen}
+        autoCorrect={false}
         keyboardAppearance="dark"
+        hitSlop={{ left: 30 }}
         {...rest}
       />
     </Pressable>
