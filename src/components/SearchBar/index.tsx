@@ -7,7 +7,7 @@ export const SearchBar = ({ ...rest }: TextInputProps) => {
   const inputRef = useRef<TextInput>(null);
 
   return (
-    <Pressable className="w-full border-[1px] border-grey5 rounded-lg bg-grey900 items-center flex-row px-3">
+    <Pressable className="w-full border-[1px] border-grey500 rounded-lg bg-grey900 items-center flex-row px-3">
       <MagnifyingGlass size={13} color={COLORS.grey500} />
       <TextInput
         ref={inputRef}

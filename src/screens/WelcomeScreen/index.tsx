@@ -11,8 +11,8 @@ export const WelcomeScreen = () => {
   return (
     <View className="flex-1 justify-center items-center">
       <DefaultBackgroundLinear />
-      <CowboyHat color={COLORS.grey3} size={120} />
-      <Text className="text-grey3 font-firasans-black text-4xl text-center pb-8">MAFIA MASTER</Text>
+      <CowboyHat color={COLORS.grey100} size={120} />
+      <Text className="text-grey100 font-firasans-black text-4xl text-center pb-8">MAFIA MASTER</Text>
       <ExtendedButton type="primary" title="LOGIN" onPress={goToLogin} />
     </View>
   );

@@ -18,7 +18,7 @@ export const Header = ({ title, leftAbsoluteElement, rightAbsoluteElement }: Hea
           <View className="absolute left-0 top-0 bottom-0 justify-center">{leftAbsoluteElement}</View>
         )}
 
-        <Text className="text-grey3 font-firasans-black text-2xl">{title}</Text>
+        <Text className="text-grey100 font-firasans-black text-2xl">{title}</Text>
 
         {!!rightAbsoluteElement && (
           <View className="absolute right-0 top-0 bottom-0 justify-center">{rightAbsoluteElement}</View>

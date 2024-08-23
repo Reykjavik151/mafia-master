@@ -34,10 +34,10 @@ export const PlayerSearchListItem = React.memo(
                 .join('')}
           </Text>
         </View>
-        <Text numberOfLines={1} className="w-[90px] text-grey3 font-inter-semibold text-center text-md">
+        <Text numberOfLines={1} className="w-[90px] text-grey100 font-inter-semibold text-center text-md">
           {nickname}
         </Text>
-        <Text numberOfLines={1} className="w-[90px] text-grey3 font-inter-regular text-center text-sm">
+        <Text numberOfLines={1} className="w-[90px] text-grey100 font-inter-regular text-center text-sm">
           {fullname}
         </Text>
       </Pressable>
