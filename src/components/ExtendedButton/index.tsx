@@ -32,7 +32,7 @@ export const ExtendedButton = ({
       default:
       case 'primary':
       case 'secondary':
-        return 'px-4 py-3 rounded-lg';
+        return 'p-4 rounded-md';
     }
   }, [type]);
 
@@ -40,9 +40,9 @@ export const ExtendedButton = ({
     switch (type) {
       default:
       case 'primary':
-        return 'bg-secondaryAccent border-[1px] border-grey3';
+        return 'bg-accent border-[1px] border-accent';
       case 'secondary':
-        return 'bg-grey9 border-[1px] border-grey8';
+        return 'bg-grey800 border-[1px] border-grey700';
     }
   }, [type]);
 
@@ -50,7 +50,9 @@ export const ExtendedButton = ({
     switch (type) {
       default:
       case 'primary':
-        return 'bg-secondaryAccent border-[1px] border-secondaryAccent';
+        return 'bg-purple200 border-[1px] border-accent';
+      case 'secondary':
+        return 'bg-grey700 border-[1px] border-grey600';
     }
   }, [type]);
 
@@ -66,14 +68,14 @@ export const ExtendedButton = ({
   const InnerContent = useMemo(() => {
     switch (type) {
       case 'primary':
-        return <Text className="text-grey3 font-inter-black text-xl text-center">{restProps.title}</Text>;
+        return <Text className="text-grey050 font-inter-bold text-lg text-center">{restProps.title}</Text>;
       case 'secondary':
         const { LeftIcon } = restProps as { LeftIcon: Icon };
 
         return (
           <View className="flex-row justify-center items-center gap-3">
-            {!!LeftIcon && <LeftIcon size={24} color={COLORS.grey3} />}
-            <Text className="text-grey3 font-inter-black text-xl text-center">{restProps.title}</Text>
+            {!!LeftIcon && <LeftIcon size={18} weight="fill" color={COLORS.grey050} />}
+            <Text className="text-grey050 font-inter-bold text-lg text-center">{restProps.title}</Text>
           </View>
         );
     }

@@ -16,6 +16,14 @@ module.exports = {
     extend: {
       colors: COLORS,
       fontFamily: fontFamilies,
+      fontSize: {
+        sm: '0.875rem',
+        md: '1rem',
+        lg: '1.125rem',
+        xl: '1.25rem',
+        '2xl': '1.375rem',
+        '3xl': '1.5rem',
+      },
     },
   },
   plugins: [],

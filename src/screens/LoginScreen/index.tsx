@@ -18,12 +18,12 @@ export const LoginScreen = () => {
 
   return (
     <DefaultScreenContainer>
-      <ScrollView className="flex-1" contentContainerClassName="flex-1 px-6" keyboardShouldPersistTaps="handled">
+      <ScrollView className="flex-1" contentContainerClassName="flex-1" keyboardShouldPersistTaps="handled">
         <KeyboardAvoidingView className="flex-1 items-center justify-center" behavior="padding">
-          <CowboyHat color={COLORS.grey3} size={120} />
+          <CowboyHat color={COLORS.grey100} size={120} />
 
           <View>
-            <Text className="text-grey3 font-firasans-black text-4xl text-center pb-8">MAFIA MASTER</Text>
+            <Text className="text-grey100 font-inter-black text-4xl text-center pb-8">MAFIA MASTER</Text>
           </View>
 
           <ExtendedTextInput

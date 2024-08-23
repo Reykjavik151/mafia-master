@@ -55,7 +55,7 @@ export const GamePlayer = ({ num, nickname, role, isRoleVisible }: GamePlayerPro
 
     return (
       <View className="-mb-3">
-        <Icon color={COLORS.primary} size={36} />
+        <Icon color={COLORS.accent} size={36} />
       </View>
     );
   }, [num, role, isRoleVisible]);

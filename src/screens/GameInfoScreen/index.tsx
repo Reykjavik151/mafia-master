@@ -17,7 +17,7 @@ export const GameInfoScreen = () => {
           isPlaying
           rotation="counterclockwise"
           duration={10}
-          colors={[COLORS.secondaryAccent as `#${string}`, COLORS.secondary as `#${string}`]}
+          colors={[COLORS.accent as `#${string}`, COLORS.purple1000 as `#${string}`]}
           colorsTime={[10, 0]}
           onComplete={() => console.log('finish')}
         >
