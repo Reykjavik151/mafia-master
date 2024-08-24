@@ -5,7 +5,7 @@ export default function Layout() {
   return (
     <Stack screenOptions={NO_HEADER_OPTIONS}>
       <Stack.Screen name="select-players" />
-      <Stack.Screen name="select-player-seats" />
+      <Stack.Screen name="select-player-order" />
     </Stack>
   );
 }

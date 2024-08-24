@@ -1,11 +1,14 @@
 import { MAFIA_MAX_PLAYERS } from '#constants/mafia';
 import { PLAYERS_DUMMY } from '#models/dummy/players.dummy';
+import { useAppDispatch } from '#redux/hooks';
 import { selectionAsync } from 'expo-haptics';
 import { useRouter } from 'expo-router';
 import { useCallback, useMemo, useState } from 'react';
 
 export const useSelectPlayersScreenController = () => {
   const router = useRouter();
+
+  const dispatch = useAppDispatch();
 
   // const [players] = useState<Player[]>(PLAYERS_DUMMY.slice());
   const [selectedPlayerIds, setSelectedPlayerIds] = useState<string[]>([]);
@@ -47,7 +50,7 @@ export const useSelectPlayersScreenController = () => {
 
   const onNextPress = useCallback(() => {
     console.log('TODO: dispatch redux action to set players');
-    router.navigate('/new-game/select-player-seats');
+    router.navigate('/new-game/select-player-order');
   }, [router]);
 
   return {
