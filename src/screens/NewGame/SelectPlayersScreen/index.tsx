@@ -1,13 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import {
-  DefaultBackgroundLinear,
-  Header,
-  SearchBar,
-  PlayerSearchList,
-  ExtendedButton,
-  DefaultScreenContainer,
-} from '#components';
+import { SearchBar, PlayerSearchList, ExtendedButton, DefaultScreenContainer, BackButtonHeader } from '#components';
 import { useSelectPlayersScreenController } from './hooks/useSelectPlayersScreenController';
 import { MAFIA_MAX_PLAYERS } from '#constants/mafia';
 
@@ -23,15 +16,11 @@ export const SelectPlayersScreen = () => {
 
   return (
     <DefaultScreenContainer>
-      <Header title="Select Players" />
+      <BackButtonHeader title="Select Players" />
 
       <View className="flex-1">
         <View className="py-6 pb-0">
-          <SearchBar
-            value={searchInputValue}
-            onChangeText={setSearchInputValue}
-            placeholder="Type a nickname or a name..."
-          />
+          <SearchBar value={searchInputValue} onChangeText={setSearchInputValue} placeholder="Type a name..." />
         </View>
 
         <PlayerSearchList

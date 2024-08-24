@@ -1,15 +1,18 @@
 import React from 'react';
-import { DefaultScreenContainer, ExtendedButton, Header } from '#components';
+import { View } from 'react-native';
+import { BackButtonHeader, DefaultScreenContainer, ExtendedButton } from '#components';
 import { useSelectGameOptionsScreenController } from './hooks/useSelectGameOptionsScreenController';
 
-export const SelectPlayerOrderScreen = () => {
-  const {} = useSelectGameOptionsScreenController();
+export const SelectGameOptionsScreen = () => {
+  const { onNextPress } = useSelectGameOptionsScreenController();
 
   return (
     <DefaultScreenContainer>
-      <Header title="Game Options" />
+      <BackButtonHeader title="Game Options" />
 
-      <ExtendedButton type="primary" title="Next" onPress={() => {}} />
+      <View className="flex-1" />
+
+      <ExtendedButton type="primary" title="Next" onPress={onNextPress} />
     </DefaultScreenContainer>
   );
 };

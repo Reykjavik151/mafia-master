@@ -1,26 +1,35 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { Nullable } from '#types/Nullable';
 import { CurrentGame } from '#models/CurrentGame';
 import { NewGameOptions } from '#models/NewGameOptions';
 
 type CurrentGameState = {
-  newGameOptions: Nullable<NewGameOptions>;
-  currentGame: Nullable<CurrentGame>;
+  newGameOptions: Partial<NewGameOptions>;
+  currentGame: Partial<CurrentGame>;
 };
 
 const INITIAL_STATE: CurrentGameState = {
-  newGameOptions: null,
-  currentGame: null,
+  newGameOptions: {},
+  currentGame: {},
 };
 
 export const currentGameSlice = createSlice({
   name: 'currentGame',
   initialState: INITIAL_STATE,
   reducers: {
-    addNewGameOptions: (state, { payload: newGameRecord }: PayloadAction<Partial<NewGameOptions>>) => {},
+    addNewGameOptions: (state, { payload: newGameOptions }: PayloadAction<Partial<NewGameOptions>>) => {
+      if (!state.newGameOptions) {
+        state.newGameOptions = newGameOptions;
+        return;
+      }
+
+      state.newGameOptions = {
+        ...state.newGameOptions,
+        ...newGameOptions,
+      };
+    },
     resetNewGameOptions: (state) => {
-      state.newGameOptions = null;
+      state.newGameOptions = {};
     },
 
     addCurrentGameInfo: (state, { payload: newCurrentGameInfo }: PayloadAction<Partial<CurrentGame>>) => {
@@ -30,12 +39,16 @@ export const currentGameSlice = createSlice({
       };
     },
     resetCurrentGameInfo: (state) => {
-      state.currentGame = null;
+      state.currentGame = {};
+    },
+
+    startGame: (state) => {
+      state.currentGame = state.newGameOptions;
     },
   },
 });
 
-export const { addCurrentGameInfo, resetCurrentGameInfo, addNewGameOptions, resetNewGameOptions } =
+export const { addCurrentGameInfo, resetCurrentGameInfo, addNewGameOptions, startGame, resetNewGameOptions } =
   currentGameSlice.actions;
 
 export const currentGameReducer = currentGameSlice.reducer;

@@ -1,6 +1,8 @@
 import { MAFIA_MAX_PLAYERS } from '#constants/mafia';
 import { PLAYERS_DUMMY } from '#models/dummy/players.dummy';
+import { addNewGameOptions } from '#redux/currentGame/currentGameSlice';
 import { useAppDispatch } from '#redux/hooks';
+import { convertPlayersArrToTenRecord } from '#utils/players';
 import { selectionAsync } from 'expo-haptics';
 import { useRouter } from 'expo-router';
 import { useCallback, useMemo, useState } from 'react';
@@ -10,7 +12,7 @@ export const useSelectPlayersScreenController = () => {
 
   const dispatch = useAppDispatch();
 
-  // const [players] = useState<Player[]>(PLAYERS_DUMMY.slice());
+  // const [players] = useState<Player[]>(...);
   const [selectedPlayerIds, setSelectedPlayerIds] = useState<string[]>([]);
   const [searchInputValue, setSearchInputValue] = useState('');
 
@@ -49,9 +51,11 @@ export const useSelectPlayersScreenController = () => {
   }, []);
 
   const onNextPress = useCallback(() => {
-    console.log('TODO: dispatch redux action to set players');
+    const players = selectedPlayerIds.map((playerId) => PLAYERS_DUMMY.find((player) => player.id === playerId)!);
+    dispatch(addNewGameOptions({ players: convertPlayersArrToTenRecord(players) }));
+
     router.navigate('/new-game/select-player-order');
-  }, [router]);
+  }, [dispatch, router, selectedPlayerIds]);
 
   return {
     selectedPlayerIds,

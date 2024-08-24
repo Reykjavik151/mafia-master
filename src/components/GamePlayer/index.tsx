@@ -21,13 +21,13 @@ export const GamePlayer = ({ num, nickname, role, isRoleVisible }: GamePlayerPro
 
     switch (role) {
       case 'citizen':
-        return 'bg-redAccent';
+        return 'bg-citizen';
       case 'sheriff':
-        return 'bg-yellowAccent';
+        return 'bg-sheriff';
       case 'mafia':
-        return 'bg-grayAccent';
+        return 'bg-mafia';
       case 'don':
-        return 'bg-grey3';
+        return 'bg-don';
     }
   }, [role, isRoleVisible]);
 
@@ -55,7 +55,7 @@ export const GamePlayer = ({ num, nickname, role, isRoleVisible }: GamePlayerPro
 
     return (
       <View className="-mb-3">
-        <Icon color={COLORS.accent} size={36} />
+        <Icon color={COLORS.grey800} weight="fill" size={36} />
       </View>
     );
   }, [num, role, isRoleVisible]);
@@ -63,10 +63,10 @@ export const GamePlayer = ({ num, nickname, role, isRoleVisible }: GamePlayerPro
   return (
     <View>
       <View className={clsx(containerClassNames, 'rounded-full h-[60px] w-[60px] justify-center items-center')}>
-        {isRoleVisible && <Text className="mx-auto absolute top-0 font-jost-bold text-primary text-2xl">{num}</Text>}
+        {isRoleVisible && <Text className="absolute top-0 font-jost-bold text-grey800 text-3xl">{num}</Text>}
         {InnerContent}
       </View>
-      <Text className="text-grey3 font-inter-regular text-md text-center pt-1 w-[60px]" numberOfLines={1}>
+      <Text className="text-grey050 font-inter-regular text-md text-center pt-1 w-[60px]" numberOfLines={1}>
         {nickname}
       </Text>
     </View>

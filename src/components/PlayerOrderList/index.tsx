@@ -6,19 +6,28 @@ import { Nullable } from '#types/Nullable';
 import { generalStyles } from '#utils/generalStyles';
 import { selectionAsync } from 'expo-haptics';
 import { ArrowsClockwise, List } from 'phosphor-react-native';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import DraggableFlatList, { RenderItemParams, ScaleDecorator } from 'react-native-draggable-flatlist';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useSpecificKeyExtractor } from 'react-native-hookbox';
 import shuffle from 'lodash/shuffle';
 
-export const PlayerOrderList = () => {
-  const [data, setData] = useState(PLAYERS_DUMMY.slice(1));
+type PlayerOrderListProps = {
+  initialPlayers: Player[];
+  onPlayerOrderChange: (newPlayersOrder: Player[]) => void;
+};
+
+export const PlayerOrderList = ({ initialPlayers, onPlayerOrderChange }: PlayerOrderListProps) => {
+  const [data, setData] = useState(initialPlayers);
 
   const [placeholderIndex, setPlaceholderIndex] = useState<Nullable<number>>(null);
 
   const keyExtractor = useSpecificKeyExtractor<Player>('player-order-item', 'id');
+
+  useEffect(() => {
+    onPlayerOrderChange(data);
+  }, [data, onPlayerOrderChange]);
 
   const onPlaceholderItemChange = useCallback((index: number) => {
     setPlaceholderIndex(index);

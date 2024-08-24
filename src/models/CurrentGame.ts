@@ -1,3 +1,9 @@
+import { Player } from './Player';
+import { PlayerRole } from './PlayerRole';
+import { TenPlayersRecord } from './TenPlayersRecord';
+
 export type CurrentGame = {
-  // TODO:
+  master: Player;
+  players: TenPlayersRecord<Player>;
+  roles: TenPlayersRecord<PlayerRole>;
 };

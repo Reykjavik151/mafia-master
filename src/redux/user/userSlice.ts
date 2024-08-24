@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { Nullable } from '#types/Nullable';
 import { Player } from '#models/Player';
+import { OPIUM_PLAYER_DUMMY } from '#models/dummy/players.dummy';
 
 type UserState = {
   user: Nullable<Player>;
@@ -9,7 +10,7 @@ type UserState = {
 };
 
 const INITIAL_STATE: UserState = {
-  user: null,
+  user: OPIUM_PLAYER_DUMMY,
 };
 
 export const userSlice = createSlice({
