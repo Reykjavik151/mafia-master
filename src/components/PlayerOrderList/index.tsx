@@ -1,14 +1,17 @@
+import { ExtendedButton } from '#components/ExtendedButton';
 import { COLORS } from '#constants/colors';
 import { PLAYERS_DUMMY } from '#models/dummy/players.dummy';
 import { Player } from '#models/Player';
 import { Nullable } from '#types/Nullable';
 import { generalStyles } from '#utils/generalStyles';
-import { List } from 'phosphor-react-native';
-import React, { useState } from 'react';
+import { selectionAsync } from 'expo-haptics';
+import { ArrowsClockwise, List } from 'phosphor-react-native';
+import React, { useCallback, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import DraggableFlatList, { RenderItemParams, ScaleDecorator } from 'react-native-draggable-flatlist';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useSpecificKeyExtractor } from 'react-native-hookbox';
+import shuffle from 'lodash/shuffle';
 
 export const PlayerOrderList = () => {
   const [data, setData] = useState(PLAYERS_DUMMY.slice(1));
@@ -16,6 +19,15 @@ export const PlayerOrderList = () => {
   const [placeholderIndex, setPlaceholderIndex] = useState<Nullable<number>>(null);
 
   const keyExtractor = useSpecificKeyExtractor<Player>('player-order-item', 'id');
+
+  const onPlaceholderItemChange = useCallback((index: number) => {
+    setPlaceholderIndex(index);
+    selectionAsync();
+  }, []);
+
+  const onShufflePress = useCallback(() => {
+    setData((prev) => shuffle(prev));
+  }, []);
 
   const renderItem = ({ item, drag, isActive, getIndex }: RenderItemParams<Player>) => {
     const playerNumInList = (getIndex() ?? 0) + 1;
@@ -44,20 +56,25 @@ export const PlayerOrderList = () => {
   };
 
   return (
-    <GestureHandlerRootView className="flex-1 bg-transparent">
-      <DraggableFlatList
-        data={data}
-        onDragEnd={({ data: newData }) => {
-          setData(newData);
-          setPlaceholderIndex(null);
-        }}
-        showsVerticalScrollIndicator={false}
-        keyExtractor={keyExtractor}
-        renderItem={renderItem}
-        contentContainerClassName="p-6 pt-4"
-        containerStyle={generalStyles.flex}
-        onPlaceholderIndexChange={setPlaceholderIndex}
-      />
-    </GestureHandlerRootView>
+    <>
+      <View className="px-6 pt-5">
+        <ExtendedButton type="secondary" title="Randomize" LeftIcon={ArrowsClockwise} onPress={onShufflePress} />
+      </View>
+      <GestureHandlerRootView className="flex-1 bg-transparent">
+        <DraggableFlatList
+          data={data}
+          onDragEnd={({ data: newData }) => {
+            setData(newData);
+            setPlaceholderIndex(null);
+          }}
+          showsVerticalScrollIndicator={false}
+          keyExtractor={keyExtractor}
+          renderItem={renderItem}
+          contentContainerClassName="p-6 pt-4"
+          containerStyle={generalStyles.flex}
+          onPlaceholderIndexChange={onPlaceholderItemChange}
+        />
+      </GestureHandlerRootView>
+    </>
   );
 };
