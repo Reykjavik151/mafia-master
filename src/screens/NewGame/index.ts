@@ -1,2 +1,2 @@
 export { SelectPlayersScreen } from './SelectPlayersScreen';
-export { SelectPlayerSeatsScreen } from './SelectPlayerSeatsScreen';
+export { SelectPlayerOrderScreen } from './SelectPlayerOrderScreen';
