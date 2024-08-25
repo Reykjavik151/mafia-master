@@ -1,10 +1,9 @@
 import { ExtendedButton } from '#components/ExtendedButton';
 import { COLORS } from '#constants/colors';
-import { PLAYERS_DUMMY } from '#models/dummy/players.dummy';
 import { Player } from '#models/Player';
 import { Nullable } from '#types/Nullable';
 import { generalStyles } from '#utils/generalStyles';
-import { selectionAsync } from 'expo-haptics';
+import { notificationAsync, selectionAsync } from 'expo-haptics';
 import { ArrowsClockwise, List } from 'phosphor-react-native';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
@@ -42,9 +41,14 @@ export const PlayerOrderList = ({ initialPlayers, onPlayerOrderChange }: PlayerO
     const playerNumInList = (getIndex() ?? 0) + 1;
     const numberToShow = (isActive && placeholderIndex !== null && placeholderIndex + 1) || playerNumInList;
 
+    const onLongPress = () => {
+      drag();
+      notificationAsync();
+    };
+
     return (
       <ScaleDecorator>
-        <TouchableOpacity onLongPress={drag} disabled={isActive} activeOpacity={1}>
+        <TouchableOpacity onLongPress={onLongPress} disabled={isActive} activeOpacity={1}>
           <View
             className="flex-row items-center border-[1px] border-grey500 rounded-xl my-1"
             style={{ backgroundColor: isActive ? COLORS.grey800 : COLORS.grey900 }}
