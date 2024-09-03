@@ -1,9 +1,11 @@
-export type GamePhase =
+export type GameDayPhase = 'day' | 'night';
+
+export type GamePhaseStep =
   | 'role-selection'
   | 'mafia-discuss'
   | 'sheriff-time'
   | 'free-sit-time'
-  | 'day'
+  | 'day:speech'
   | 'day:voting'
   | 'day:last-minute'
   | 'night:mafia-shoot'
