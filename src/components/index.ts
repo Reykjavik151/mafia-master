@@ -10,3 +10,6 @@ export { BackButtonHeader } from './Header/BackButtonHeader';
 export { SearchBar } from './SearchBar';
 export { PlayerSearchList } from './PlayerSearchList';
 export { PlayerOrderList } from './PlayerOrderList';
+export { GameToolbar } from './GameToolbar';
+export { GamePhases } from './GamePhases';
+export { GameTitleInfo } from './GameTitleInfo';

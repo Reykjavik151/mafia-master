@@ -2,6 +2,8 @@ import { Stack } from 'expo-router';
 import { Provider as ReduxProvider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'react-native';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import '../../nativewind.css';
 
@@ -30,8 +32,12 @@ export default function RootLayout() {
   return (
     <ReduxProvider store={store}>
       <SafeAreaProvider>
-        <StatusBar barStyle="light-content" />
-        <RootStack />
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <BottomSheetModalProvider>
+            <StatusBar barStyle="light-content" />
+            <RootStack />
+          </BottomSheetModalProvider>
+        </GestureHandlerRootView>
       </SafeAreaProvider>
     </ReduxProvider>
   );

@@ -1,6 +1,5 @@
-import { DefaultScreenContainer, GameTable, Header } from '#components';
-import { GamePhases } from '#components/GamePhases';
-import { GameTitleInfo } from '#components/GameTitleInfo';
+import { DefaultScreenContainer, GameTitleInfo, GameTable, GameToolbar, Header, GamePhases } from '#components';
+import { ScrollView } from 'react-native';
 import { useGameScreenController } from './hooks/useGameScreenController';
 
 export const GameScreen = () => {
@@ -9,12 +8,14 @@ export const GameScreen = () => {
   return (
     <DefaultScreenContainer>
       <Header title="Game: Preparation" />
-
       <GamePhases phases={phases} currentPhaseStep={currentPhaseInfo.phase} nextDayPhase="day" />
-
       <GameTitleInfo currentPhaseStep={currentPhaseInfo.phase} />
 
-      <GameTable players={players} roles={roles} isRolesVisible />
+      <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
+        <GameTable players={players} roles={roles} isRolesVisible />
+      </ScrollView>
+
+      <GameToolbar currentPhaseStep={currentPhaseInfo.phase} />
     </DefaultScreenContainer>
   );
 };
