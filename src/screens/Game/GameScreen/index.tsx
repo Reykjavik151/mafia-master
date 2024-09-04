@@ -1,18 +1,20 @@
 import { DefaultScreenContainer, GameTable, Header } from '#components';
 import { GamePhases } from '#components/GamePhases';
-import { INITIAL_NIGHT_PHASE } from '#constants/game';
+import { GameTitleInfo } from '#components/GameTitleInfo';
 import { useGameScreenController } from './hooks/useGameScreenController';
 
 export const GameScreen = () => {
-  const { players } = useGameScreenController();
+  const { players, roles, currentPhaseInfo, phases } = useGameScreenController();
 
   return (
     <DefaultScreenContainer>
       <Header title="Game: Preparation" />
 
-      <GamePhases phases={INITIAL_NIGHT_PHASE} currentPhaseStep={INITIAL_NIGHT_PHASE[1]} nextDayPhase="day" />
+      <GamePhases phases={phases} currentPhaseStep={currentPhaseInfo.phase} nextDayPhase="day" />
 
-      <GameTable players={players} isRolesVisible />
+      <GameTitleInfo currentPhaseStep={currentPhaseInfo.phase} />
+
+      <GameTable players={players} roles={roles} isRolesVisible />
     </DefaultScreenContainer>
   );
 };

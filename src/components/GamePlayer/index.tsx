@@ -1,6 +1,7 @@
 import { COLORS } from '#constants/colors';
 import { PlayerNumber } from '#models/PlayerNumber';
 import { PlayerRole } from '#models/PlayerRole';
+import { Nullable } from '#types/Nullable';
 import clsx from 'clsx';
 import { CowboyHat, Heart, ShieldStar, ThumbsDown, Icon as IconType } from 'phosphor-react-native';
 import React, { useMemo } from 'react';
@@ -9,14 +10,14 @@ import { View, Text } from 'react-native';
 type GamePlayerProps = {
   num: PlayerNumber;
   nickname: string;
-  role?: PlayerRole;
+  role: Nullable<PlayerRole>;
   isRoleVisible?: boolean;
 };
 
 export const GamePlayer = ({ num, nickname, role, isRoleVisible }: GamePlayerProps) => {
   const containerClassNames = useMemo(() => {
-    if (!isRoleVisible) {
-      return 'bg-secondary border-2 border-grey3';
+    if (!isRoleVisible || !role) {
+      return 'bg-grey900 border-2 border-grey050';
     }
 
     switch (role) {
@@ -32,8 +33,8 @@ export const GamePlayer = ({ num, nickname, role, isRoleVisible }: GamePlayerPro
   }, [role, isRoleVisible]);
 
   const InnerContent = useMemo(() => {
-    if (!isRoleVisible) {
-      return <Text className="font-jost-bold text-grey3 text-2xl pt-1">{num}</Text>;
+    if (!isRoleVisible || !role) {
+      return <Text className="font-jost-bold text-grey050 text-2xl pt-1">{num}</Text>;
     }
 
     let Icon: IconType;
@@ -63,7 +64,7 @@ export const GamePlayer = ({ num, nickname, role, isRoleVisible }: GamePlayerPro
   return (
     <View>
       <View className={clsx(containerClassNames, 'rounded-full h-[60px] w-[60px] justify-center items-center')}>
-        {isRoleVisible && <Text className="absolute top-0 font-jost-bold text-grey800 text-3xl">{num}</Text>}
+        {isRoleVisible && role && <Text className="absolute top-0 font-jost-bold text-grey800 text-3xl">{num}</Text>}
         {InnerContent}
       </View>
       <Text className="text-grey050 font-inter-regular text-md text-center pt-1 w-[60px]" numberOfLines={1}>

@@ -1,3 +1,4 @@
+import { INITIAL_CURRENT_GAME_VALUES } from '#constants/game';
 import { PLAYERS_DUMMY } from '#models/dummy/players.dummy';
 import { Player } from '#models/Player';
 import { TenPlayersRecord } from '#models/TenPlayersRecord';
@@ -20,7 +21,7 @@ export const useSelectPlayerOrderScreenController = () => {
 
   const onStartGamePress = useCallback(() => {
     const playersTenRecord: TenPlayersRecord<Player> = convertPlayersArrToTenRecord(players);
-    dispatch(addNewGameOptions({ players: playersTenRecord }));
+    dispatch(addNewGameOptions({ players: playersTenRecord, ...INITIAL_CURRENT_GAME_VALUES }));
     dispatch(startGame());
     router.replace('/current-game/game');
   }, [dispatch, players, router]);
