@@ -5,7 +5,6 @@ import { Dimensions, Keyboard, Text, ScrollView, View } from 'react-native';
 import BottomSheet, { BottomSheetBackdrop, BottomSheetBackdropProps, BottomSheetView } from '@gorhom/bottom-sheet';
 import { ExtendedTextInput } from '#components/ExtendedTextInput';
 import { TextInput } from 'react-native-gesture-handler';
-import { COLORS } from '#constants/colors';
 
 export type GameToolbarProps = {
   currentPhaseStep: GamePhaseStep;
@@ -58,7 +57,7 @@ export const GameToolbar = ({ currentPhaseStep }: GameToolbarProps) => {
         borderTopRightRadius: 30,
       }}
     >
-      <BottomSheetView className="flex-1 bg-grey800  rounded-2xl border-grey700 border-2">
+      <BottomSheetView className="flex-1 bg-grey900  rounded-2xl border-grey700 border-2">
         <ScrollView className="flex-1" contentContainerClassName="px-6 py-4" scrollEnabled={false}>
           <Text className="text-grey050 font-inter-bold text-md">Mafia Time</Text>
           <View className="py-4">
